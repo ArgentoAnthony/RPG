@@ -8,17 +8,21 @@ List <Monster> monsters = new List<Monster>();
 for (int i = 0; i < 1000; i++)
 {
     Random r = new Random();
-    int rng = r.Next(3);
+    int rng = r.Next(6);
     switch (rng)
     {
         case 0:
             monsters.Add(new Wolf());
             break;
         case 1:
+        case 2:
             monsters.Add(new Troll());
             break;
-        case 2:
+        case 3:
+        case 4:
             monsters.Add(new Dragon());
+            break;
+        case 5:
             break;
     }
 }

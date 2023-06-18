@@ -9,6 +9,7 @@ namespace RPG.Entities.Monsters
 {
     public class Wolf : Monster
     {
+        public int Leather { get; } = Dice.Throws(DiceType.D6);
         public override void Attack(Entity e)
         {
             Console.WriteLine("Ahouuu");

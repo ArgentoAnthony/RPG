@@ -14,15 +14,15 @@ namespace RPG.Entities.Heroes
             Name = name;
             if (name == "Dante") 
             {
-                Strength *= 10;
-                Stamina *= 10;
-                Hp *= 10;
-                CurrentHp *= 10;
+                Strength *= 100;
+                Stamina *= 100;
+                Hp *= 1000;
+                CurrentHp = Hp;
             }
         }
         public override void Attack(Entity e)
         {
-            Console.WriteLine("Que trépasse si je faiblis!");
+            Console.WriteLine("Jackpot");
             e.TakeDamage(Dice.Throws(DiceType.D10,5));
         }
     }
