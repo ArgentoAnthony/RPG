@@ -9,6 +9,11 @@ namespace RPG.Entities.Heroes
 {
     public class Human : Hero
     {
+        public Human() 
+        {
+            Strength += 1;
+            Stamina += 1;
+        }
         public Human(string name)
         {
             Name = name;
@@ -24,6 +29,13 @@ namespace RPG.Entities.Heroes
         {
             Console.WriteLine("Jackpot");
             e.TakeDamage(Dice.Throws(DiceType.D10,5));
+        }
+
+        public override void GenerateStats()
+        {
+            base.GenerateStats();
+            Strength += 1;
+            Stamina += 1;
         }
     }
 }

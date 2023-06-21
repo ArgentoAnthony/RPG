@@ -12,8 +12,9 @@ namespace RPG.Entities
         private int _currentHp;
         public Entity()
         {
-            Strength = Dice.Throws(DiceType.D6, 5, 3);
-            Stamina = Dice.Throws(DiceType.D6, 5, 3);
+            GenerateStats();
+            //Strength = Dice.Throws(DiceType.D6, 5, 3);
+            //Stamina = Dice.Throws(DiceType.D6, 5, 3);
             Hp = Strength + Stamina;
             CurrentHp = Hp;        
         }
@@ -34,7 +35,7 @@ namespace RPG.Entities
         {
             CurrentHp -= amount;
         }
-
+        public abstract void GenerateStats();
         
     }
 }

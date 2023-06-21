@@ -34,7 +34,5 @@ namespace RPG.Utils
 
             return throws.OrderByDescending(nb => nb).Take(nbToKeep).Sum();
         }
-
-
     }
 }

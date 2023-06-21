@@ -10,6 +10,11 @@ namespace RPG.Entities.Heroes
 {
     public abstract class Hero : Entity, IGold, ILeather
     {
+        public Hero()
+        {
+            Strength = Dice.Throws(DiceType.D10, 5, 3);
+            Stamina = Dice.Throws(DiceType.D10, 5, 3);
+        }
         public string Name { get; set; }
         public int Gold { get; set; } 
         public int Leather { get; set; }
@@ -21,7 +26,7 @@ namespace RPG.Entities.Heroes
 
         public void Loot(Entity e)
         {
-            if(e is IGold g)
+            if (e is IGold g)
             {
                 this.Gold += g.Gold;
             }
@@ -30,7 +35,11 @@ namespace RPG.Entities.Heroes
                 Leather += l.Leather;
             }
         }
-
+        public override void GenerateStats()
+        {
+           Strength = Dice.Throws(DiceType.D10, 5, 3);
+           Stamina = Dice.Throws(DiceType.D10, 5, 3);
+        }
 
     }
 }
