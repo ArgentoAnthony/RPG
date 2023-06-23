@@ -28,12 +28,15 @@ namespace RPG.Entities.Heroes
         {
             if (e is IGold g)
             {
+                Console.WriteLine($"{this.Name} loot {g.GetType().Name} et obtient {g.Gold} or");
                 this.Gold += g.Gold;
             }
             if (e is ILeather l)
             {
+                Console.WriteLine($"{this.Name} loot {l.GetType().Name} et obtient {l.Leather} cuir");
                 Leather += l.Leather;
             }
+            Heal();
         }
         public override void GenerateStats()
         {

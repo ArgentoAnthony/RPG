@@ -9,6 +9,8 @@ namespace RPG.Entities
 {
     public abstract class Entity
     {
+        public event Action<Entity> DieEvent;
+
         private int _currentHp;
         public Entity()
         {
@@ -34,8 +36,17 @@ namespace RPG.Entities
         public void TakeDamage(int amount)
         {
             CurrentHp -= amount;
+            if(!isAlive)
+            {
+                RaiseDieEvent();
+            }
         }
         public abstract void GenerateStats();
+
+        private void RaiseDieEvent()
+        {
+            DieEvent?.Invoke(this);
+        }
         
     }
 }

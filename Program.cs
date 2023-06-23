@@ -12,17 +12,23 @@ for (int i = 0; i < 1000; i++)
     switch (rng)
     {
         case 0:
-            monsters.Add(new Wolf());
             break;
         case 1:
         case 2:
-            monsters.Add(new Troll());
+            Wolf wolf = new Wolf();
+            wolf.DieEvent += Dante.Loot;
+            monsters.Add(wolf);
             break;
         case 3:
         case 4:
-            monsters.Add(new Dragon());
+            Troll troll = new Troll();
+            troll.DieEvent += Dante.Loot;
+            monsters.Add(troll);
             break;
         case 5:
+            Dragon dragon = new Dragon();
+            dragon.DieEvent += Dante.Loot;
+            monsters.Add(dragon);
             break;
     }
 }
